@@ -17,7 +17,16 @@ jobs:
       run: docker build -t housing_image .
     - name: Docker Run Action
       run: docker run --rm --name housing_container -v /github/workspace/shared_folder:/home/housing/shared_folder:rw housing_image
-    - uses: actions/upload-artifact@v3
-      with:
-        name: output
-        path: /github/workspace/shared_folder/
+
+    - name: Create the runs branch if it does not already exist
+      if: steps.runs-exist.outcome != 'success'
+      run: git checkout --orphan rap-run
+
+    - name: Upload latest run
+      run: |
+        git config --local user.name "GitHub Actions"
+        git config --local user.email "actions@github.com"
+        rm -r .gitignore .github/workflows
+        git add /github/workspace/share_folder/
+        git commit -am "Run pipeline"
+        git push origin rap-run
