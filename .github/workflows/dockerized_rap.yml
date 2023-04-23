@@ -13,10 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        ref: rap-runs
-        fetch-depth: 1
-        path: .rap-runs
         
     - name: Build the Docker image
       run: docker build -t housing_image .
@@ -28,6 +24,8 @@ jobs:
       run: |
         git config --local user.name "GitHub Actions"
         git config --local user.email "actions@github.com"
+        git checkout -b rap-runs
         git add $(pwd)/shared_folder/
         git commit -am "Run pipeline"
-        git push origin rap-run
+        git pull --rebase origin main
+        git push origin rap-runs
