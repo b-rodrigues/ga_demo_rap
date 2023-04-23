@@ -13,15 +13,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+      with:
+        ref: rap-runs
+        fetch-depth: 1
+        path: .rap-runs
+        
     - name: Build the Docker image
       run: docker build -t housing_image .
     - name: Docker Run Action
       run: docker run --rm --name housing_container -v $(pwd)/shared_folder:/home/housing/shared_folder:rw housing_image
       working-directory: .
-
-    - name: Create the runs branch if it does not already exist
-      if: steps.runs-exist.outcome != 'success'
-      run: git checkout --orphan rap-run
 
     - name: Upload latest run
       run: |
