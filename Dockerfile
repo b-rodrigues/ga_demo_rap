@@ -6,13 +6,13 @@ RUN mkdir /home/housing/pipeline_output
 
 RUN mkdir /home/housing/shared_folder
 
-COPY renv.lock /home/housing/renv.lock
+COPY /github/workspace/renv.lock /home/housing/renv.lock
 
-COPY functions /home/housing/functions
+COPY /github/workspace/functions /home/housing/functions
 
-COPY analyse_data.Rmd /home/housing/analyse_data.Rmd
+COPY /github/workspace/analyse_data.Rmd /home/housing/analyse_data.Rmd
 
-COPY _targets.R /home/housing/_targets.R
+COPY /github/workspace/_targets.R /home/housing/_targets.R
 
 RUN R -e "setwd('/home/housing');renv::init();renv::restore()"
 
