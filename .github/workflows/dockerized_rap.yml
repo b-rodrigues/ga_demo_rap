@@ -19,5 +19,5 @@ jobs:
       run: docker run --rm --name housing_container -v /github/workspace/shared_folder:/home/housing/shared_folder:rw housing_image
     - uses: actions/upload-artifact@v3
       with:
-        name: output
+        name: housing_output_${{ github.sha }}
         path: /github/workspace/shared_folder/
