@@ -27,6 +27,6 @@ jobs:
       run: |
         git config --local user.name "GitHub Actions"
         git config --local user.email "actions@github.com"
-        git add .
+        git add $(pwd)/shared_folder/
         git commit -am "Run pipeline"
         git push origin rap-run
