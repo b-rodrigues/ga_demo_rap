@@ -32,7 +32,7 @@ list(
     communes,
     c("Luxembourg",
       "Esch-sur-Alzette",
-
+      "Wiltz",
       "Schengen",
       "Wincrange")
   ),
