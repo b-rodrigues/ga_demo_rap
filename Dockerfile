@@ -1,4 +1,4 @@
-FROM rocker/r-ver:4.2.2
+FROM brodriguesco/r_4.2.2:main-b1950d55ccbd8009de4ee2006a097c3e7ef1c529
 
 RUN mkdir /home/housing
 
