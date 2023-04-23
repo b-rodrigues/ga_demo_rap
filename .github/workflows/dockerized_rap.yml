@@ -27,5 +27,5 @@ jobs:
         git checkout -b rap-runs
         git add $(pwd)/shared_folder/
         git commit -am "Run pipeline"
-        git pull --rebase origin main
+        git pull --rebase origin rap-runs
         git push origin rap-runs
