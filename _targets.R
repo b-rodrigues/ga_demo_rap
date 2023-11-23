@@ -32,7 +32,8 @@ list(
     communes,
     c("Luxembourg",
       "Esch-sur-Alzette",
-      "Wiltz",
+      "Wiltz", 
+      "Dudelange",
       "Schengen",
       "Wincrange")
   ),
