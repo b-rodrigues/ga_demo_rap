@@ -35,7 +35,6 @@ list(
       "Wiltz", 
       "Dudelange",
       "Schengen",
-      "Mersch",
       "Remich",
       "Wincrange")
   ),
